@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -12,7 +11,7 @@
  *
  * Return: the number of characters written
  */
-int handle_percent(void)
+int handle_percent(char c)
 {
 	return (write(1, "%", 1));
 }

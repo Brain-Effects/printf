@@ -93,7 +93,7 @@ int _printf(const char *format, ...)
 int handle_c(va_list args)
 {
 	char c = va_arg(args, int);
-	
+
 	return (write(1, &c, 1));
 }
 /**
@@ -109,11 +109,11 @@ int handle_s(va_list args)
 {
 	int count = 0;
 	char *str = va_arg(args, char *);
-	
+
 	while (*str)
 		count += write(1, str++, 1);
-	
-    return (count);
+
+	return (count);
 }
 /**
  * handle_d_i - handles the d and i conversion specifiers

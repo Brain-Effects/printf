@@ -81,3 +81,53 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
+/**
+ * handle_c - handles the c conversion specifier
+ * @args: variable argument list
+ *
+ * Description: This function retrieves a character argument from the
+ * variable argument list and writes it to the standard output stream.
+ *
+ * Return: the number of characters written
+ */
+int handle_c(va_list args)
+{
+	char c = va_arg(args, int);
+	
+	return (write(1, &c, 1));
+}
+/**
+ * handle_s - handles the s conversion specifier
+ * @args: variable argument list
+ *
+ * Description: This function retrieves a string argument from the variable
+ * argument list and writes it to the standard output stream.
+ *
+ * Return: the number of characters written
+ */
+int handle_s(va_list args)
+{
+	int count = 0;
+	char *str = va_arg(args, char *);
+	
+	while (*str)
+		count += write(1, str++, 1);
+	
+    return (count);
+}
+/**
+ * handle_d_i - handles the d and i conversion specifiers
+ * @args: variable argument list
+ *
+ * Description: This function retrieves an integer argument from the variable
+ * argument list and writes its decimal representation to the
+ * standard output stream.
+ *
+ * Return: the number of characters written
+ */
+int handle_d_i(va_list args)
+{
+	int n = va_arg(args, int);
+
+	return (print_number(n));
+}
